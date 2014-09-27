@@ -40,6 +40,19 @@ namespace ApiDocumenter.Tests
             Assert.AreEqual(true, response.IsOk);          
         }
 
+        [TestMethod]
+        public void Demo()
+        {
+            var request =  new ModelRequest()
+                {
+                Assembly = typeof(Request).Assembly,
+                OutputPath = @"C:\FolderWhereDocument-BootstrapIs\temp.html"
+                };
+            var response = new WriteOutputCommand(GetModelRequest()).Execute();
+            Assert.AreEqual(null, response.Message);
+            Assert.AreEqual(true, response.IsOk);
+        }
+
         
     }
 }
