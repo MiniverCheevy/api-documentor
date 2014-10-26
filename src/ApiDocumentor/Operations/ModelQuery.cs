@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using ApiDocumenter.Models;
+using Voodoo.Infrastructure.Notations;
 using Voodoo.Operations;
 
 namespace ApiDocumenter.Operations
@@ -47,6 +48,8 @@ namespace ApiDocumenter.Operations
                         && ! c.IsNested   
                         && ! request.ExcludedTypes.Contains(c)
                         && (c.GetCustomAttribute<ObsoleteAttribute>() == null)
+                        && (c.GetCustomAttribute<ThirdPartyAttribute>() == null)
+                        && (c.GetCustomAttribute<UnfinishedAttribute>() == null)
                     )
                 .OrderBy(c => c.Name).ToArray();
 

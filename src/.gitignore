@@ -1,3 +1,7 @@
+packages/
+bin/
+obj/
+build-outputs/
 *.log
 *.sqlite
 Thumbs.db
@@ -9,6 +13,7 @@ Thumbs.db
 *.so
 *.nupkg
 
+_ReSharper.*
 *.user
 *.vspscc
 *.ncrunchproject

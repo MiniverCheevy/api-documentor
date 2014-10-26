@@ -61,6 +61,8 @@ namespace ApiDocumenter
 
     public HtmlString getTypeName(Type type)
     {
+        if (type == null)
+            return new HtmlString(string.Empty);
         if (Paths.ContainsKey(type))
         {
             return new HtmlString(Paths[type]);
@@ -200,7 +202,7 @@ WriteLiteral("\r\n<!doctype html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta c
 
 
             
-            #line 186 "..\..\Body.cshtml"
+            #line 188 "..\..\Body.cshtml"
                  foreach (var node in Model)
                 {
 
@@ -211,7 +213,7 @@ WriteLiteral("                    <h2 data-path=\"");
 
 
             
-            #line 188 "..\..\Body.cshtml"
+            #line 190 "..\..\Body.cshtml"
                                Write(node.Path);
 
             
@@ -221,7 +223,7 @@ WriteLiteral("\">");
 
 
             
-            #line 188 "..\..\Body.cshtml"
+            #line 190 "..\..\Body.cshtml"
                                              Write(node.Name);
 
             
@@ -235,7 +237,7 @@ WriteLiteral("                    <p class=\"well\">\r\n                    </p>
 
 
             
-            #line 191 "..\..\Body.cshtml"
+            #line 193 "..\..\Body.cshtml"
                     foreach (var classNode in node.Classes)
                     {
 
@@ -246,7 +248,7 @@ WriteLiteral("                    <a id=\"");
 
 
             
-            #line 193 "..\..\Body.cshtml"
+            #line 195 "..\..\Body.cshtml"
                       Write(HttpUtility.HtmlEncode(classNode.Path));
 
             
@@ -260,7 +262,7 @@ WriteLiteral("                    <h3 data-path=\"");
 
 
             
-            #line 194 "..\..\Body.cshtml"
+            #line 196 "..\..\Body.cshtml"
                                Write(node.Path);
 
             
@@ -270,7 +272,7 @@ WriteLiteral("\">");
 
 
             
-            #line 194 "..\..\Body.cshtml"
+            #line 196 "..\..\Body.cshtml"
                                             Write(HttpUtility.HtmlEncode(classNode.Name));
 
             
@@ -280,7 +282,7 @@ WriteLiteral("</h3>\r\n");
 
 
             
-            #line 195 "..\..\Body.cshtml"
+            #line 197 "..\..\Body.cshtml"
                         if (classNode.Interfaces.Any())
                         {
 
@@ -291,7 +293,7 @@ WriteLiteral("                    <b>");
 
 
             
-            #line 197 "..\..\Body.cshtml"
+            #line 199 "..\..\Body.cshtml"
                    Write("Interfaces: ");
 
             
@@ -301,7 +303,7 @@ WriteLiteral("</b>\r\n");
 
 
             
-            #line 198 "..\..\Body.cshtml"
+            #line 200 "..\..\Body.cshtml"
                         }
                         foreach (var face in classNode.Interfaces)
                         {
@@ -310,14 +312,14 @@ WriteLiteral("</b>\r\n");
             #line default
             #line hidden
             
-            #line 201 "..\..\Body.cshtml"
+            #line 203 "..\..\Body.cshtml"
                 Write(getTypeName(face));
 
             
             #line default
             #line hidden
             
-            #line 201 "..\..\Body.cshtml"
+            #line 203 "..\..\Body.cshtml"
                                         
                             if (face != classNode.Interfaces.Last())
                             {
@@ -326,14 +328,14 @@ WriteLiteral("</b>\r\n");
             #line default
             #line hidden
             
-            #line 204 "..\..\Body.cshtml"
+            #line 206 "..\..\Body.cshtml"
                 Write(", ");
 
             
             #line default
             #line hidden
             
-            #line 204 "..\..\Body.cshtml"
+            #line 206 "..\..\Body.cshtml"
                            
                             }
                         }
@@ -347,7 +349,7 @@ WriteLiteral("                    <br />\r\n");
 
 
             
-            #line 210 "..\..\Body.cshtml"
+            #line 212 "..\..\Body.cshtml"
                         }
                         if (@classNode.Parents.Any())
                         {
@@ -359,7 +361,7 @@ WriteLiteral("                    <b>");
 
 
             
-            #line 213 "..\..\Body.cshtml"
+            #line 215 "..\..\Body.cshtml"
                    Write("Inheritance Hierarchy: ");
 
             
@@ -373,7 +375,7 @@ WriteLiteral("                    <br />\r\n");
 
 
             
-            #line 215 "..\..\Body.cshtml"
+            #line 217 "..\..\Body.cshtml"
                         }
                         const string tab = "&nbsp;&nbsp;&nbsp;&nbsp;";
                         var indent = tab;
@@ -384,20 +386,20 @@ WriteLiteral("                    <br />\r\n");
             #line default
             #line hidden
             
-            #line 220 "..\..\Body.cshtml"
+            #line 222 "..\..\Body.cshtml"
                 Write(indent);
 
             
             #line default
             #line hidden
             
-            #line 220 "..\..\Body.cshtml"
+            #line 222 "..\..\Body.cshtml"
                              
             
             #line default
             #line hidden
             
-            #line 220 "..\..\Body.cshtml"
+            #line 222 "..\..\Body.cshtml"
                         Write(HttpUtility.HtmlEncode(getTypeName(parent)));
 
             
@@ -408,7 +410,7 @@ WriteLiteral("<br />\r\n");
 
 
             
-            #line 221 "..\..\Body.cshtml"
+            #line 223 "..\..\Body.cshtml"
                             indent = indent + tab;
                         }
 
@@ -424,7 +426,7 @@ WriteLiteral("                    <p class=\"well\">\r\n                    </p>
 
 
             
-            #line 227 "..\..\Body.cshtml"
+            #line 229 "..\..\Body.cshtml"
                         if (classNode.Properties.Any())
                         {
 
@@ -455,7 +457,7 @@ WriteLiteral(@"                            <table class=""table table-striped ta
 
 
             
-            #line 246 "..\..\Body.cshtml"
+            #line 248 "..\..\Body.cshtml"
                                      foreach (var property in classNode.Properties)
                                     {
 
@@ -466,7 +468,7 @@ WriteLiteral("                                        <tr data-path=\"");
 
 
             
-            #line 248 "..\..\Body.cshtml"
+            #line 250 "..\..\Body.cshtml"
                                                    Write(property.Path);
 
             
@@ -476,7 +478,7 @@ WriteLiteral("\">\r\n\r\n                                            <td title=\
 
 
             
-            #line 250 "..\..\Body.cshtml"
+            #line 252 "..\..\Body.cshtml"
                                                    Write(property.FullName);
 
             
@@ -487,7 +489,7 @@ WriteLiteral("\" class=\"optionName\" data-content=\"\">\r\n                    
 
 
             
-            #line 251 "..\..\Body.cshtml"
+            #line 253 "..\..\Body.cshtml"
                                             Write(property.IsStatic ? "static" : "");
 
             
@@ -498,7 +500,7 @@ WriteLiteral("\r\n                                            </td>\r\n         
 
 
             
-            #line 253 "..\..\Body.cshtml"
+            #line 255 "..\..\Body.cshtml"
                                            Write(getTypeName(property.ReturnType));
 
             
@@ -508,7 +510,7 @@ WriteLiteral("</td>\r\n                                            <td>");
 
 
             
-            #line 254 "..\..\Body.cshtml"
+            #line 256 "..\..\Body.cshtml"
                                             Write(property.Name);
 
             
@@ -519,7 +521,7 @@ WriteLiteral("</td>\r\n                                            <td></td>\r\n
 
 
             
-            #line 257 "..\..\Body.cshtml"
+            #line 259 "..\..\Body.cshtml"
                                     }
 
             
@@ -529,7 +531,7 @@ WriteLiteral("                                </tbody>\r\n                      
 
 
             
-            #line 260 "..\..\Body.cshtml"
+            #line 262 "..\..\Body.cshtml"
                         }
                         if (classNode.Methods.Any())
                         {
@@ -541,23 +543,20 @@ WriteLiteral("                    <h4>Methods</h4>\r\n");
 
 
             
-            #line 264 "..\..\Body.cshtml"
+            #line 266 "..\..\Body.cshtml"
 
 
             
             #line default
             #line hidden
 WriteLiteral(@"                            <table class=""table table-striped table-bordered table-condensed"">
-                                <colgroup>
-                                   <col class=""widthTiny""  />
-                                    <col class=""widthMedium""  />
-                                    <col class=""widthSmall""  />
-                                    <col class=""widthLarge""  />
+                                <colgroup>                                   
                                 </colgroup>
                                 <tbody>
                                     <tr>
                                         <th></th>
                                         <th>Return Type</th>
+                                        <th>Source</th>
                                         <th>Method</th>
                                         <th>Remarks</th>
                                     </tr>
@@ -565,7 +564,7 @@ WriteLiteral(@"                            <table class=""table table-striped ta
 
 
             
-            #line 279 "..\..\Body.cshtml"
+            #line 278 "..\..\Body.cshtml"
                                      foreach (var method in classNode.Methods)
                                     {
 
@@ -576,7 +575,7 @@ WriteLiteral("                                        <tr data-path=\"");
 
 
             
-            #line 281 "..\..\Body.cshtml"
+            #line 280 "..\..\Body.cshtml"
                                                    Write(method.Path);
 
             
@@ -586,7 +585,7 @@ WriteLiteral("\">\r\n                                            <td title=\"");
 
 
             
-            #line 282 "..\..\Body.cshtml"
+            #line 281 "..\..\Body.cshtml"
                                                    Write(method.FullName);
 
             
@@ -597,7 +596,7 @@ WriteLiteral("\" class=\"optionName\" data-content=\"\">\r\n                    
 
 
             
-            #line 283 "..\..\Body.cshtml"
+            #line 282 "..\..\Body.cshtml"
                                             Write(method.IsStatic ? "static" : "");
 
             
@@ -608,8 +607,18 @@ WriteLiteral("\r\n                                            </td>\r\n         
 
 
             
-            #line 285 "..\..\Body.cshtml"
+            #line 284 "..\..\Body.cshtml"
                                            Write(getTypeName(method.ReturnType));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n                                            <td>");
+
+
+            
+            #line 285 "..\..\Body.cshtml"
+                                           Write(getTypeName(method.SourceType));
 
             
             #line default
@@ -619,7 +628,7 @@ WriteLiteral("</td>\r\n");
 
             
             #line 286 "..\..\Body.cshtml"
-                                               var text = String.Concat(method.Source, method.Source != null ? "." : "", method.Name, method.TypeArguments, " (", method.Signature, ")"); 
+                                               var text = String.Concat(method.Name, method.TypeArguments, "(", method.Signature, ")"); 
 
             
             #line default

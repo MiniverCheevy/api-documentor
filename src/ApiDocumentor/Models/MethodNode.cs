@@ -13,6 +13,7 @@ namespace ApiDocumenter.Models
         public string Signature { get; set; }
         public string TypeArguments { get; set; }
         public string Source { get; set; }
+        public Type SourceType { get; set; }
         public string ReturnTypeName { get; set; }
         public Type ReturnType { get; set; }
 
@@ -40,7 +41,11 @@ namespace ApiDocumenter.Models
             if (parameters.Any())
             {
                 if (isExtension)
-                    this.Source = parameters.First().ParameterType.FixUpTypeName();
+                {
+                    this.SourceType = parameters.First().ParameterType;
+                    this.Source = SourceType.FixUpTypeName();
+                    
+                }
                 var lastParameter = parameters.Last();
                 var counter = isExtension ? 1 : 0;
                 for (var i = counter; i < parameters.Count(); i++)

@@ -39,10 +39,6 @@
       <HintPath>..\packages\RazorGenerator.Templating.2.2.3\lib\net40\RazorGenerator.Templating.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="Voodoo, Version=1.0.17.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Voodoo.Patterns.1.0.17\lib\net40\Voodoo.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -66,6 +62,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\voodoo\Voodoo\Voodoo.csproj">
+      <Project>{878aed33-344d-44ce-b11d-f9ea7a47113a}</Project>
+      <Name>Voodoo</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ApiDocumentor\ApiDocumenter.csproj">
       <Project>{59835a28-cd41-44a8-ab3a-b41ef8139f52}</Project>
       <Name>Documenter</Name>
