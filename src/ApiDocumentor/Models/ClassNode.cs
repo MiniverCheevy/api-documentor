@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using Voodoo;
+using Voodoo.Messages;
 
 namespace ApiDocumenter.Models
 {
@@ -12,6 +13,8 @@ namespace ApiDocumenter.Models
         private List<string> gettersAndSetters;
         public List<Type> Parents { get; set; }
         public List<Type> Interfaces { get; set; }
+        public List<INameValuePair> Descriptions { get; set; }
+        public List<INameValuePair> Addendums { get; set; }
 
         public ClassNode()
         {
@@ -57,6 +60,7 @@ namespace ApiDocumenter.Models
                                       BindingFlags.DeclaredOnly )
                           .Where(c => ! noiseMethods.Contains(c.Name)
                                       && c.GetCustomAttribute<CompilerGeneratedAttribute>() == null
+                                       && (c.GetCustomAttribute<ObsoleteAttribute>() == null)
                                       && ! gettersAndSetters.Contains(c.Name)))
             {
                
@@ -71,7 +75,9 @@ namespace ApiDocumenter.Models
                 var property in
                     @class.GetProperties(BindingFlags.Public |
                         BindingFlags.Instance | BindingFlags.Static |
-                        BindingFlags.DeclaredOnly ))
+                        BindingFlags.DeclaredOnly )
+                        .Where(c=>c.GetCustomAttribute<ObsoleteAttribute>() == null))
+                        
             {
                 if (property.GetGetMethod() !=null)
                     gettersAndSetters.Add(property.GetGetMethod().Name);

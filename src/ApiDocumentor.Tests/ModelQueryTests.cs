@@ -17,7 +17,7 @@ namespace ApiDocumenter.Tests
             return new ModelRequest()
                 {
                 Assembly = typeof(Request).Assembly,
-                OutputPath = @"C:\DropBox\Lib\Projects\Documenter\Document-Bootstrap-master\temp.html"
+                OutputPath = @"Z:\Dropbox\Lib\Projects\voodoo.gh-pages\voodoo\temp.html"
                 };
         }
 
