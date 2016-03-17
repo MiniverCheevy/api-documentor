@@ -43,9 +43,9 @@
       <HintPath>..\packages\RazorGenerator.Templating.2.2.3\lib\net40\RazorGenerator.Templating.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="Voodoo, Version=1.0.31.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Voodoo, Version=1.0.33.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Voodoo.Patterns.1.0.31\lib\net451\Voodoo.dll</HintPath>
+      <HintPath>..\packages\Voodoo.Patterns.1.0.33\lib\net451\Voodoo.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Choose>

@@ -51,9 +51,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Voodoo, Version=1.0.31.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Voodoo, Version=1.0.33.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Voodoo.Patterns.1.0.31\lib\net451\Voodoo.dll</HintPath>
+      <HintPath>..\packages\Voodoo.Patterns.1.0.33\lib\net451\Voodoo.dll</HintPath>
     </Reference>
     <Reference Include="WebActivatorEx">
       <HintPath>..\packages\WebActivatorEx.2.0.3\lib\net40\WebActivatorEx.dll</HintPath>

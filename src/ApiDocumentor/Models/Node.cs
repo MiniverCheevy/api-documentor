@@ -11,6 +11,6 @@ namespace ApiDocumenter.Models
         public string FullName { get; set; }
         public NodeType Type { get; set; }
         public string Path { get; set; }
-        public TypeInformation TypeInfo { get; set; }
+        //public TypeInformation TypeInfo { get; set; }
     }
 }
