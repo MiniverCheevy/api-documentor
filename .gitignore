@@ -37,3 +37,5 @@ Thumbs.db
 *.zip
  
 
+/src/_NCrunch_ApiDocumentor/StoredText
+/src/ApiDocumentor.Tests/JsonTests.cs~RF16d5e9f4.TMP
